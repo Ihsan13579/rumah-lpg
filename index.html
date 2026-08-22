@@ -195,10 +195,28 @@
   .house:first-of-type{border-top:0;padding-top:0}
   .house.flip .gallery{order:2}
   .gallery{display:flex;flex-direction:column;gap:12px}
+  .gallery .featured,.gallery .thumbs button{border:0;padding:0;background:none;display:block;width:100%;cursor:pointer}
   .gallery .featured{border-radius:14px;overflow:hidden;aspect-ratio:4/3}
   .gallery .thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:8px}
-  .gallery .thumbs a{border-radius:10px;overflow:hidden;aspect-ratio:1;display:block}
+  .gallery .thumbs button{border-radius:10px;overflow:hidden;aspect-ratio:1;transition:opacity .2s}
+  .gallery .thumbs button:hover{opacity:.8}
   .gallery .ph,.gallery img{width:100%;height:100%;object-fit:cover}
+
+  /* ───────── LIGHTBOX ───────── */
+  .lightbox{position:fixed;inset:0;background:rgba(10,14,13,.94);z-index:100;display:none;align-items:center;justify-content:center;padding:24px}
+  .lightbox.open{display:flex}
+  .lightbox img{max-width:min(90vw,1100px);max-height:85vh;width:auto;height:auto;object-fit:contain;border-radius:10px;user-select:none}
+  .lb-close,.lb-nav{position:absolute;border:0;border-radius:50%;background:rgba(255,255,255,.1);color:#fff;cursor:pointer;display:grid;place-items:center;transition:background .2s;line-height:1}
+  .lb-close:hover,.lb-nav:hover{background:rgba(255,255,255,.2)}
+  .lb-close{top:20px;right:24px;width:44px;height:44px;font-size:24px}
+  .lb-nav{top:50%;transform:translateY(-50%);width:52px;height:52px;font-size:28px}
+  .lb-prev{left:16px}
+  .lb-next{right:16px}
+  .lb-counter{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:13px;color:rgba(255,255,255,.7);letter-spacing:.08em}
+  @media(max-width:600px){
+    .lb-nav{width:40px;height:40px;font-size:20px}
+    .lb-close{width:36px;height:36px;top:12px;right:12px;font-size:20px}
+  }
 
   .house-info .label{
     font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--maroon);margin-bottom:14px
@@ -342,7 +360,7 @@
         <img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/1.jpg" alt="Rumah A tampak depan">
         <span class="tag">RUMAH A</span>
         <div class="cap">
-          <div><b>Griya Senopati Madani</b><span>2 kamar · LT/LB 105 m²</span></div>
+          <div><b>Rumah ITERA</b><span>2 kamar · LT/LB 105 m²</span></div>
           <span class="price">Rp 550 jt</span>
         </div>
       </a>
@@ -379,16 +397,16 @@
     <!-- ─── RUMAH A ─── -->
     <article class="house rv" id="rumah-a">
       <div class="gallery">
-        <div class="featured"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/1.jpg" alt="Rumah A foto 1"></div>
+        <button type="button" class="featured" data-gallery="itera" data-index="0"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/1.jpg" alt="Rumah A foto 1" loading="lazy"></button>
         <div class="thumbs">
-          <a href="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/2.jpg" target="_blank" rel="noopener"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/2.jpg" alt="Rumah A foto 2"></a>
-          <a href="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/3.jpg" target="_blank" rel="noopener"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/3.jpg" alt="Rumah A foto 3"></a>
-          <a href="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/4.jpg" target="_blank" rel="noopener"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/4.jpg" alt="Rumah A foto 4"></a>
-          <a href="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/5.jpg" target="_blank" rel="noopener"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/5.jpg" alt="Rumah A foto 5"></a>
-          <a href="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/6.jpg" target="_blank" rel="noopener"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/6.jpg" alt="Rumah A foto 6"></a>
-          <a href="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/7.jpg" target="_blank" rel="noopener"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/7.jpg" alt="Rumah A foto 7"></a>
-          <a href="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/8.jpg" target="_blank" rel="noopener"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/8.jpg" alt="Rumah A foto 8"></a>
-          <a href="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/9.jpg" target="_blank" rel="noopener"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/9.jpg" alt="Rumah A foto 9"></a>
+          <button type="button" data-gallery="itera" data-index="1"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/2.jpg" alt="Rumah A foto 2" loading="lazy"></button>
+          <button type="button" data-gallery="itera" data-index="2"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/3.jpg" alt="Rumah A foto 3" loading="lazy"></button>
+          <button type="button" data-gallery="itera" data-index="3"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/4.jpg" alt="Rumah A foto 4" loading="lazy"></button>
+          <button type="button" data-gallery="itera" data-index="4"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/5.jpg" alt="Rumah A foto 5" loading="lazy"></button>
+          <button type="button" data-gallery="itera" data-index="5"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/6.jpg" alt="Rumah A foto 6" loading="lazy"></button>
+          <button type="button" data-gallery="itera" data-index="6"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/7.jpg" alt="Rumah A foto 7" loading="lazy"></button>
+          <button type="button" data-gallery="itera" data-index="7"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/8.jpg" alt="Rumah A foto 8" loading="lazy"></button>
+          <button type="button" data-gallery="itera" data-index="8"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/9.jpg" alt="Rumah A foto 9" loading="lazy"></button>
         </div>
       </div>
       <div class="house-info">
@@ -424,15 +442,15 @@
     <!-- ─── RUMAH B ─── -->
     <article class="house flip rv" id="rumah-b">
       <div class="gallery">
-        <div class="featured"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/1.jpg" alt="Rumah B foto 1"></div>
+        <button type="button" class="featured" data-gallery="panjang" data-index="0"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/1.jpg" alt="Rumah B foto 1" loading="lazy"></button>
         <div class="thumbs">
-          <a href="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/2.jpg" target="_blank" rel="noopener"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/2.jpg" alt="Rumah B foto 2"></a>
-          <a href="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/3.jpg" target="_blank" rel="noopener"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/3.jpg" alt="Rumah B foto 3"></a>
-          <a href="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/4.jpg" target="_blank" rel="noopener"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/4.jpg" alt="Rumah B foto 4"></a>
-          <a href="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/5.jpg" target="_blank" rel="noopener"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/5.jpg" alt="Rumah B foto 5"></a>
-          <a href="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/6.jpg" target="_blank" rel="noopener"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/6.jpg" alt="Rumah B foto 6"></a>
-          <a href="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/7.jpg" target="_blank" rel="noopener"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/7.jpg" alt="Rumah B foto 7"></a>
-          <a href="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/8.jpg" target="_blank" rel="noopener"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/8.jpg" alt="Rumah B foto 8"></a>
+          <button type="button" data-gallery="panjang" data-index="1"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/2.jpg" alt="Rumah B foto 2" loading="lazy"></button>
+          <button type="button" data-gallery="panjang" data-index="2"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/3.jpg" alt="Rumah B foto 3" loading="lazy"></button>
+          <button type="button" data-gallery="panjang" data-index="3"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/4.jpg" alt="Rumah B foto 4" loading="lazy"></button>
+          <button type="button" data-gallery="panjang" data-index="4"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/5.jpg" alt="Rumah B foto 5" loading="lazy"></button>
+          <button type="button" data-gallery="panjang" data-index="5"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/6.jpg" alt="Rumah B foto 6" loading="lazy"></button>
+          <button type="button" data-gallery="panjang" data-index="6"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/7.jpg" alt="Rumah B foto 7" loading="lazy"></button>
+          <button type="button" data-gallery="panjang" data-index="7"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/8.jpg" alt="Rumah B foto 8" loading="lazy"></button>
         </div>
       </div>
       <div class="house-info">
@@ -578,12 +596,80 @@
   <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5.3-.5c.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
 </a>
 
+<!-- ═══════ LIGHTBOX ═══════ -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button type="button" class="lb-close" id="lbClose" aria-label="Tutup">&times;</button>
+  <button type="button" class="lb-nav lb-prev" id="lbPrev" aria-label="Foto sebelumnya">&#8249;</button>
+  <img id="lbImg" src="" alt="">
+  <button type="button" class="lb-nav lb-next" id="lbNext" aria-label="Foto berikutnya">&#8250;</button>
+  <div class="lb-counter" id="lbCounter"></div>
+</div>
+
 <script>
   // Scroll reveal
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { threshold: .12 });
   document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+  // Lightbox gallery
+  const galleries = {
+    itera: Array.from({ length: 9 }, (_, i) => `https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/${i + 1}.jpg`),
+    panjang: Array.from({ length: 8 }, (_, i) => `https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/${i + 1}.jpg`)
+  };
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lbImg');
+  const lbCounter = document.getElementById('lbCounter');
+  let lbGallery = null, lbIndex = 0;
+
+  function updateLightbox() {
+    const imgs = galleries[lbGallery];
+    lbImg.src = imgs[lbIndex];
+    lbImg.alt = `Foto ${lbIndex + 1}`;
+    lbCounter.textContent = `${lbIndex + 1} / ${imgs.length}`;
+  }
+  function openLightbox(gallery, index) {
+    lbGallery = gallery;
+    lbIndex = index;
+    updateLightbox();
+    lb.classList.add('open');
+    lb.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    lb.classList.remove('open');
+    lb.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+  function navLightbox(dir) {
+    const imgs = galleries[lbGallery];
+    lbIndex = (lbIndex + dir + imgs.length) % imgs.length;
+    updateLightbox();
+  }
+
+  document.querySelectorAll('.gallery [data-gallery]').forEach(el => {
+    el.addEventListener('click', () => openLightbox(el.dataset.gallery, parseInt(el.dataset.index, 10)));
+  });
+  document.getElementById('lbClose').addEventListener('click', closeLightbox);
+  document.getElementById('lbPrev').addEventListener('click', () => navLightbox(-1));
+  document.getElementById('lbNext').addEventListener('click', () => navLightbox(1));
+  lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') navLightbox(-1);
+    if (e.key === 'ArrowRight') navLightbox(1);
+  });
+
+  // Swipe to slide on touch devices
+  let touchStartX = null;
+  lb.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', e => {
+    if (touchStartX === null) return;
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 40) navLightbox(dx > 0 ? -1 : 1);
+    touchStartX = null;
+  }, { passive: true });
 </script>
 </body>
 </html>

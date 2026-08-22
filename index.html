@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dua Rumah Dijual · Bandar Lampung</title>
+<meta name="description" content="Dua rumah pribadi dijual langsung oleh pemilik di Bandar Lampung. Tanpa perantara, harga nego, siap huni.">
+
+<!-- Open Graph / social share preview — [EDIT] ganti og:url ke domain asli setelah di-hosting -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dua Rumah Dijual · Bandar Lampung">
+<meta property="og:description" content="Rumah Griya Senopati Madani (Sukarame) & Ruko Panjang, dijual langsung oleh pemilik. Tanpa perantara, harga nego, siap huni.">
+<meta property="og:image" content="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/1.jpg">
+<meta property="og:image:width" content="1200">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dua Rumah Dijual · Bandar Lampung">
+<meta name="twitter:description" content="Rumah Griya Senopati Madani (Sukarame) & Ruko Panjang, dijual langsung oleh pemilik.">
+<meta name="twitter:image" content="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/1.jpg">
+
+<!--
+  ══════════════════════════════════════════════════════════
+  PANDUAN EDIT (untuk Claude Code / VS Code)
+  ──────────────────────────────────────────────────────────
+  1. Foto    → taruh di folder  images/rumah-a/  dan  images/rumah-b/
+               lalu ganti <div class="ph"> dengan <img src="..."> (lihat komentar FOTO di bawah)
+  2. Data    → cari komentar  [EDIT]  untuk harga, luas, alamat, nomor WA
+  3. Nomor WA sudah diisi (6282280174467) di semua link https://wa.me/
+  4. Peta    → ganti src iframe Google Maps di section #lokasi
+  ══════════════════════════════════════════════════════════
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  /* ───────── TOKENS ───────── */
+  :root{
+    --ink:#141A18;        /* teks utama */
+    --forest:#163A34;     /* hijau tua, blok berat */
+    --forest-2:#0F2A26;
+    --mist:#F2F4EF;       /* latar dingin */
+    --paper:#FFFFFF;
+    --gold:#C89B3C;       /* emas tapis / siger */
+    --gold-2:#E3C276;
+    --maroon:#7A2E2E;     /* merah tapis */
+    --mute:#6B746F;
+    --line:rgba(20,26,24,.12);
+
+    --display:'Instrument Serif', Georgia, serif;
+    --body:'Manrope', system-ui, sans-serif;
+    --mono:'IBM Plex Mono', ui-monospace, monospace;
+
+    --wrap:1180px;
+    --r:18px;
+    --ease:cubic-bezier(.22,.8,.28,1);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--body);
+    color:var(--ink);
+    background:var(--mist);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  :focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+
+  .wrap{width:min(var(--wrap),calc(100% - 40px));margin-inline:auto}
+
+  /* ───────── MOTIF TAPIS (signature) ───────── */
+  .tapis{
+    height:14px;
+    background:
+      linear-gradient(135deg,var(--gold) 25%,transparent 25%) 0 0/14px 14px,
+      linear-gradient(225deg,var(--gold) 25%,transparent 25%) 0 0/14px 14px,
+      linear-gradient(45deg,var(--gold) 25%,transparent 25%) 0 0/14px 14px,
+      linear-gradient(315deg,var(--gold) 25%,transparent 25%) 0 0/14px 14px,
+      var(--maroon);
+  }
+  .tapis--thin{height:6px;background-size:6px 6px}
+
+  /* ───────── NAV ───────── */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(242,244,239,.85);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{font-family:var(--display);font-size:24px;letter-spacing:-.01em}
+  .brand em{color:var(--maroon)}
+  .nav ul{display:flex;gap:28px;list-style:none;font-size:14px;font-weight:600}
+  .nav ul a{opacity:.75;transition:opacity .2s}
+  .nav ul a:hover{opacity:1}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:13px 22px;border-radius:999px;
+    font-weight:700;font-size:14px;letter-spacing:.01em;
+    background:var(--forest);color:#fff;
+    transition:transform .25s var(--ease),background .25s;
+  }
+  .btn:hover{background:var(--forest-2);transform:translateY(-2px)}
+  .btn--gold{background:var(--gold);color:var(--ink)}
+  .btn--gold:hover{background:var(--gold-2)}
+  .btn--ghost{background:transparent;border:1.5px solid currentColor;color:var(--forest)}
+  .btn--ghost:hover{background:var(--forest);color:#fff}
+  .btn svg{width:18px;height:18px}
+  @media(max-width:760px){.nav ul{display:none}}
+
+  /* ───────── HERO ───────── */
+  .hero{padding:72px 0 40px}
+  .hero-top{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:end;margin-bottom:40px}
+  .eyebrow{
+    font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--maroon);display:flex;align-items:center;gap:12px;margin-bottom:22px;
+  }
+  .eyebrow::before{content:"";width:28px;height:2px;background:var(--maroon)}
+  h1{
+    font-family:var(--display);font-weight:400;
+    font-size:clamp(44px,7vw,92px);line-height:.98;letter-spacing:-.02em;
+  }
+  h1 em{font-style:italic;color:var(--forest)}
+  .hero-side p{font-size:17px;color:var(--mute);max-width:36ch;margin-bottom:24px}
+  .hero-side .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+
+  /* dua rumah berdampingan */
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .duo a{
+    position:relative;border-radius:var(--r);overflow:hidden;
+    aspect-ratio:4/3;display:block;isolation:isolate;
+  }
+  .duo .ph,.duo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    transition:transform 1.2s var(--ease)}
+  .duo a:hover .ph,.duo a:hover img{transform:scale(1.04)}
+  .duo .tag{
+    position:absolute;left:18px;top:18px;z-index:2;
+    font-family:var(--mono);font-size:12px;letter-spacing:.1em;
+    background:var(--paper);padding:8px 12px;border-radius:6px;
+  }
+  .duo .cap{
+    position:absolute;left:0;right:0;bottom:0;z-index:2;padding:22px;
+    background:linear-gradient(transparent,rgba(15,42,38,.85));color:#fff;
+    display:flex;justify-content:space-between;align-items:end;gap:12px;
+  }
+  .duo .cap b{font-family:var(--display);font-weight:400;font-size:28px;line-height:1.05;display:block}
+  .duo .cap span{font-size:13px;opacity:.85}
+  .duo .cap .price{font-family:var(--mono);font-size:14px;white-space:nowrap;color:var(--gold-2)}
+
+  /* placeholder foto */
+  .ph{
+    background:
+      repeating-linear-gradient(-45deg,transparent 0 14px,rgba(22,58,52,.06) 14px 15px),
+      linear-gradient(160deg,#DCE3DB,#C2CEC6);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--forest);font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-align:center;
+  }
+  .ph::after{content:attr(data-label)}
+
+  @media(max-width:860px){
+    .hero-top{grid-template-columns:1fr;gap:24px}
+    .duo{grid-template-columns:1fr}
+  }
+
+  /* ───────── STRIP KEUNGGULAN ───────── */
+  .strip{
+    background:var(--forest);color:#fff;
+    margin-top:48px;
+  }
+  .strip .wrap{display:grid;grid-template-columns:repeat(4,1fr);padding:34px 20px}
+  .strip div{padding:0 24px;border-left:1px solid rgba(255,255,255,.14)}
+  .strip div:first-child{border-left:0;padding-left:0}
+  .strip b{font-family:var(--display);font-size:30px;font-weight:400;display:block;line-height:1;color:var(--gold-2)}
+  .strip span{font-size:13px;opacity:.75}
+  @media(max-width:760px){
+    .strip .wrap{grid-template-columns:1fr 1fr;gap:24px}
+    .strip div{border:0;padding:0}
+  }
+
+  /* ───────── SECTION DASAR ───────── */
+  section{padding:96px 0}
+  .sec-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:48px}
+  h2{font-family:var(--display);font-weight:400;font-size:clamp(34px,4.5vw,56px);line-height:1.02;letter-spacing:-.015em}
+  .sec-head p{color:var(--mute);max-width:40ch}
+
+  /* ───────── DETAIL RUMAH ───────── */
+  .house{
+    display:grid;grid-template-columns:1.05fr .95fr;gap:56px;
+    padding:48px 0;border-top:1px solid var(--line);
+  }
+  .house:first-of-type{border-top:0;padding-top:0}
+  .house.flip .gallery{order:2}
+  .gallery{display:flex;flex-direction:column;gap:12px}
+  .gallery .featured{border-radius:14px;overflow:hidden;aspect-ratio:4/3}
+  .gallery .thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:8px}
+  .gallery .thumbs a{border-radius:10px;overflow:hidden;aspect-ratio:1;display:block}
+  .gallery .ph,.gallery img{width:100%;height:100%;object-fit:cover}
+
+  .house-info .label{
+    font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--maroon);margin-bottom:14px
+  }
+  .house-info h3{font-family:var(--display);font-weight:400;font-size:40px;line-height:1.05;margin-bottom:6px}
+  .house-info .addr{color:var(--mute);font-size:15px;margin-bottom:22px}
+  .price-big{font-family:var(--display);font-size:38px;color:var(--forest);line-height:1;margin-bottom:4px}
+  .price-big small{font-family:var(--mono);font-size:12px;color:var(--mute);letter-spacing:.08em;display:block;margin-top:8px}
+
+  .specs{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    border:1px solid var(--line);border-radius:14px;overflow:hidden;
+    margin:28px 0 24px;background:var(--paper);
+  }
+  .specs div{padding:16px 18px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .specs div:nth-child(3n){border-right:0}
+  .specs div:nth-last-child(-n+3){border-bottom:0}
+  .specs span{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);display:block;margin-bottom:6px}
+  .specs b{font-size:17px;font-weight:700}
+
+  .feat{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;margin-bottom:28px}
+  .feat li{display:flex;gap:10px;font-size:15px;align-items:start}
+  .feat li::before{content:"";flex:none;width:8px;height:8px;margin-top:8px;background:var(--gold);transform:rotate(45deg)}
+
+  @media(max-width:900px){
+    .house{grid-template-columns:1fr;gap:28px}
+    .house.flip .gallery{order:0}
+  }
+  @media(max-width:520px){.specs{grid-template-columns:1fr 1fr}
+    .specs div:nth-child(3n){border-right:1px solid var(--line)}
+    .specs div:nth-child(2n){border-right:0}
+    .feat{grid-template-columns:1fr}}
+
+  /* ───────── KENAPA LANGSUNG PEMILIK ───────── */
+  .why{background:var(--paper)}
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .card{
+    background:var(--mist);border-radius:var(--r);padding:32px 28px;
+    transition:transform .3s var(--ease)
+  }
+  .card:hover{transform:translateY(-4px)}
+  .card .ico{width:44px;height:44px;border-radius:12px;background:var(--forest);display:grid;place-items:center;margin-bottom:22px}
+  .card .ico svg{width:22px;height:22px;stroke:var(--gold-2);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .card h4{font-family:var(--display);font-weight:400;font-size:26px;margin-bottom:8px}
+  .card p{color:var(--mute);font-size:15px}
+  @media(max-width:860px){.why-grid{grid-template-columns:1fr}}
+
+  /* ───────── LOKASI ───────── */
+  .loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+  .map{border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;border:1px solid var(--line);background:#DDE3DC}
+  .map iframe{width:100%;height:100%;border:0}
+  .loc-card h3{font-family:var(--display);font-weight:400;font-size:24px;margin:18px 0 6px}
+  .loc-card .land{font-family:var(--mono);font-size:13px;color:var(--mute)}
+  @media(max-width:860px){.loc-grid{grid-template-columns:1fr}}
+
+  /* ───────── FAQ ───────── */
+  .faq{background:var(--paper)}
+  details{border-top:1px solid var(--line);padding:22px 0}
+  details:last-of-type{border-bottom:1px solid var(--line)}
+  summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:17px;gap:16px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-family:var(--display);font-size:28px;color:var(--gold);line-height:1;transition:transform .3s}
+  details[open] summary::after{transform:rotate(45deg)}
+  details p{color:var(--mute);margin-top:12px;max-width:70ch}
+
+  /* ───────── CTA BESAR ───────── */
+  .cta{background:var(--forest);color:#fff;text-align:center;position:relative;overflow:hidden}
+  .cta h2{color:#fff;max-width:16ch;margin:0 auto 18px}
+  .cta h2 em{color:var(--gold-2);font-style:italic}
+  .cta p{opacity:.8;max-width:48ch;margin:0 auto 36px}
+  .cta .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .cta::before{
+    content:"";position:absolute;inset:auto -10% -60% -10%;height:80%;
+    background:radial-gradient(ellipse at center,rgba(200,155,60,.25),transparent 60%);
+    pointer-events:none;
+  }
+
+  /* ───────── FOOTER ───────── */
+  footer{padding:40px 0;font-size:13px;color:var(--mute)}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+  /* ───────── WA MENGAMBANG ───────── */
+  .wa-float{
+    position:fixed;right:20px;bottom:20px;z-index:60;
+    width:58px;height:58px;border-radius:50%;
+    background:#25D366;display:grid;place-items:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+    transition:transform .25s var(--ease)
+  }
+  .wa-float:hover{transform:scale(1.08)}
+  .wa-float svg{width:30px;height:30px;fill:#fff}
+
+  /* ───────── REVEAL ───────── */
+  .rv{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+  .rv.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    .rv{opacity:1;transform:none;transition:none}
+    *{scroll-behavior:auto!important}
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════ NAV ═══════ -->
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#">Rumah <em>Lampung</em></a>
+    <ul>
+      <li><a href="#rumah">Dua rumah</a></li>
+      <li><a href="#kenapa">Langsung pemilik</a></li>
+      <li><a href="#lokasi">Lokasi</a></li>
+      <li><a href="#faq">Tanya jawab</a></li>
+    </ul>
+    <!-- [EDIT] nomor WA -->
+    <a class="btn btn--gold" href="https://wa.me/6282280174467?text=Halo%2C%20saya%20tertarik%20dengan%20rumah%20yang%20dijual" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5.3-.5c.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+      Hubungi pemilik
+    </a>
+  </div>
+</header>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <div>
+        <div class="eyebrow">Bandar Lampung · Dijual langsung oleh pemilik</div>
+        <h1>Dua rumah,<br>satu kota, <em>tanpa perantara.</em></h1>
+      </div>
+      <div class="hero-side">
+        <p>Dua rumah pribadi di Bandar Lampung, dijual karena pemilik pindah. Harga apa adanya, bisa ditawar, bisa dilihat kapan saja.</p>
+        <div class="cta-row">
+          <a class="btn" href="#rumah">Lihat kedua rumah</a>
+          <a class="btn btn--ghost" href="https://wa.me/6282280174467" target="_blank" rel="noopener">Jadwalkan survei</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="duo">
+      <a href="#rumah-a" class="rv">
+        <img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/1.jpg" alt="Rumah A tampak depan">
+        <span class="tag">RUMAH A</span>
+        <div class="cap">
+          <div><b>Griya Senopati Madani</b><span>2 kamar · LT/LB 105 m²</span></div>
+          <span class="price">Rp 550 jt</span>
+        </div>
+      </a>
+      <a href="#rumah-b" class="rv" style="transition-delay:.15s">
+        <img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/1.jpg" alt="Rumah B tampak depan">
+        <span class="tag">RUMAH B</span>
+        <div class="cap">
+          <div><b>Ruko Panjang</b><span>4 kamar · LT/LB 259 m²</span></div>
+          <span class="price">Rp 680 jt</span>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="strip">
+    <div class="wrap">
+      <div><b>SHM</b><span>Sertifikat hak milik, atas nama pemilik</span></div>
+      <div><b>Siap huni</b><span>Tinggal bawa koper</span></div>
+      <div><b>Nego</b><span>Harga bisa dibicarakan langsung</span></div>
+      <div><b>0% komisi</b><span>Tidak ada biaya agen</span></div>
+    </div>
+  </div>
+</section>
+<div class="tapis"></div>
+
+<!-- ═══════ DETAIL RUMAH ═══════ -->
+<section id="rumah">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>Pilih yang paling<br>cocok untuk Anda.</h2>
+      <p>Keduanya di Bandar Lampung, keduanya milik saya sendiri. Detail di bawah ini apa adanya, tidak dilebih-lebihkan.</p>
+    </div>
+
+    <!-- ─── RUMAH A ─── -->
+    <article class="house rv" id="rumah-a">
+      <div class="gallery">
+        <div class="featured"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/1.jpg" alt="Rumah A foto 1"></div>
+        <div class="thumbs">
+          <a href="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/2.jpg" target="_blank" rel="noopener"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/2.jpg" alt="Rumah A foto 2"></a>
+          <a href="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/3.jpg" target="_blank" rel="noopener"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/3.jpg" alt="Rumah A foto 3"></a>
+          <a href="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/4.jpg" target="_blank" rel="noopener"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/4.jpg" alt="Rumah A foto 4"></a>
+          <a href="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/5.jpg" target="_blank" rel="noopener"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/5.jpg" alt="Rumah A foto 5"></a>
+          <a href="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/6.jpg" target="_blank" rel="noopener"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/6.jpg" alt="Rumah A foto 6"></a>
+          <a href="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/7.jpg" target="_blank" rel="noopener"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/7.jpg" alt="Rumah A foto 7"></a>
+          <a href="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/8.jpg" target="_blank" rel="noopener"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/8.jpg" alt="Rumah A foto 8"></a>
+          <a href="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/9.jpg" target="_blank" rel="noopener"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/9.jpg" alt="Rumah A foto 9"></a>
+        </div>
+      </div>
+      <div class="house-info">
+        <div class="label">RUMAH A · GRIYA SENOPATI MADANI</div>
+        <h3>Rumah hook furnished di Sukarame</h3>
+        <div class="addr">Perumahan Griya Senopati Madani, Sukarame, Bandar Lampung</div>
+        <div class="price-big">Rp 550.000.000 <small>NEGO · SHM CLEAN &amp; CLEAR · IMB ADA</small></div>
+
+        <div class="specs">
+          <div><span>Luas tanah/bangunan</span><b>105 m²</b></div>
+          <div><span>Kamar tidur</span><b>2</b></div>
+          <div><span>Kamar mandi</span><b>2</b></div>
+          <div><span>Dapur</span><b>2 (basah &amp; kering)</b></div>
+          <div><span>Listrik</span><b>2400 Watt</b></div>
+          <div><span>Parkir</span><b>3 mobil</b></div>
+        </div>
+
+        <ul class="feat">
+          <li>Posisi hook — lebih privasi &amp; ruang terbuka</li>
+          <li>Fully furnished — AC, kasur, sofa, kulkas, dll</li>
+          <li>Dekat pintu tol, ITERA &amp; UIN</li>
+          <li>Dekat SAMSAT &amp; KAPOLDA</li>
+          <li>CCTV 3 titik</li>
+          <li>Ruang mesin cuci terpisah</li>
+          <li>Perumahan resmi, anti banjir</li>
+          <li>Aman &amp; nyaman</li>
+        </ul>
+
+        <a class="btn" href="https://wa.me/6282280174467?text=Halo%2C%20saya%20tertarik%20dengan%20Rumah%20Itera%20di%20Griya%20Senopati%20Madani" target="_blank" rel="noopener">Tanya tentang Rumah Itera</a>
+      </div>
+    </article>
+
+    <!-- ─── RUMAH B ─── -->
+    <article class="house flip rv" id="rumah-b">
+      <div class="gallery">
+        <div class="featured"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/1.jpg" alt="Rumah B foto 1"></div>
+        <div class="thumbs">
+          <a href="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/2.jpg" target="_blank" rel="noopener"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/2.jpg" alt="Rumah B foto 2"></a>
+          <a href="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/3.jpg" target="_blank" rel="noopener"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/3.jpg" alt="Rumah B foto 3"></a>
+          <a href="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/4.jpg" target="_blank" rel="noopener"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/4.jpg" alt="Rumah B foto 4"></a>
+          <a href="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/5.jpg" target="_blank" rel="noopener"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/5.jpg" alt="Rumah B foto 5"></a>
+          <a href="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/6.jpg" target="_blank" rel="noopener"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/6.jpg" alt="Rumah B foto 6"></a>
+          <a href="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/7.jpg" target="_blank" rel="noopener"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/7.jpg" alt="Rumah B foto 7"></a>
+          <a href="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/8.jpg" target="_blank" rel="noopener"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/8.jpg" alt="Rumah B foto 8"></a>
+        </div>
+      </div>
+      <div class="house-info">
+        <div class="label">RUMAH B · RUKO PANJANG</div>
+        <h3>Ruko unik di Jl. Lintas Panjang</h3>
+        <div class="addr">Jl. Lintas Panjang, Bandar Lampung</div>
+        <div class="price-big">Rp 680.000.000 <small>NEGO · SHM CLEAN &amp; CLEAR · IMB ADA</small></div>
+
+        <div class="specs">
+          <div><span>Luas tanah/bangunan</span><b>259 m²</b></div>
+          <div><span>Kamar tidur</span><b>4</b></div>
+          <div><span>Kamar mandi</span><b>4</b></div>
+          <div><span>Listrik</span><b>2× 2400 Watt</b></div>
+          <div><span>AC</span><b>5 ruangan</b></div>
+          <div><span>Garasi</span><b>Indoor + carport</b></div>
+        </div>
+
+        <ul class="feat">
+          <li>Pinggir jalan lintas utama, akses kendaraan besar</li>
+          <li>Dekat pelabuhan, pabrik &amp; pom bensin</li>
+          <li>Kolam ikan batu alam + skylight alami</li>
+          <li>Ruang aula multifungsi + proyektor</li>
+          <li>Dinding batu alam unik, ring basket di garasi</li>
+          <li>Cocok untuk ruko, gudang, kos, kantor, kuliner, atau hunian keluarga</li>
+          <li>Anti banjir, lokasi terbukti ramai</li>
+          <li>SHM clean &amp; clear, IMB ada</li>
+        </ul>
+
+        <a class="btn" href="https://wa.me/6282280174467?text=Halo%2C%20saya%20tertarik%20dengan%20Ruko%20Panjang" target="_blank" rel="noopener">Tanya tentang Ruko Panjang</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ═══════ KENAPA LANGSUNG PEMILIK ═══════ -->
+<section class="why" id="kenapa">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>Kenapa beli langsung<br>dari pemilik?</h2>
+      <p>Tidak ada yang tahu rumah ini lebih baik dari orang yang tinggal di dalamnya.</p>
+    </div>
+    <div class="why-grid">
+      <div class="card rv">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 2l7 4v6c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h4>Dokumen jelas</h4>
+        <p>SHM atas nama pemilik, PBB lunas, IMB ada. Semua bisa dicek bersama di notaris pilihan Anda.</p>
+      </div>
+      <div class="card rv" style="transition-delay:.1s">
+        <div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h4>Jawaban cepat</h4>
+        <p>Tanya apa saja lewat WhatsApp: tagihan listrik bulanan, tetangga, kondisi saat hujan. Saya jawab sendiri.</p>
+      </div>
+      <div class="card rv" style="transition-delay:.2s">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 10l9-7 9 7v10a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg></div>
+        <h4>Harga tanpa mark-up</h4>
+        <p>Tidak ada komisi agen yang ditambahkan ke harga. Yang Anda bayar adalah harga rumahnya.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="tapis tapis--thin"></div>
+
+<!-- ═══════ LOKASI ═══════ -->
+<section id="lokasi">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>Keduanya di<br>Bandar Lampung.</h2>
+      <p>Rumah A di Sukarame, Ruko B di Panjang. Masing-masing punya karakter sendiri.</p>
+    </div>
+    <div class="loc-grid">
+      <div class="loc-card rv">
+        <div class="map">
+          <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=-5.3612912,105.3069675&output=embed"></iframe>
+        </div>
+        <h3>Rumah A — Griya Senopati Madani</h3>
+        <div class="land">Dekat pintu tol · ITERA &amp; UIN · SAMSAT &amp; KAPOLDA</div>
+      </div>
+      <div class="loc-card rv" style="transition-delay:.1s">
+        <div class="map">
+          <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=-5.492804,105.3259906&output=embed"></iframe>
+        </div>
+        <h3>Ruko B — Jl. Lintas Panjang</h3>
+        <div class="land">Pinggir jalan lintas utama · dekat pelabuhan, pabrik &amp; pom bensin</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FAQ ═══════ -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>Yang sering ditanyakan.</h2>
+    </div>
+    <div class="rv">
+      <details open>
+        <summary>Bisa pakai KPR?</summary>
+        <p>Tidak ada kerja sama KPR langsung dari saya, tapi sertifikat SHM sehingga Anda bisa mengurus cicilan ke bank manapun secara mandiri. Saya bantu siapkan dokumen yang diminta bank.</p>
+      </details>
+      <details>
+        <summary>Bisa survei hari apa saja?</summary>
+        <p>Setiap hari, termasuk akhir pekan. Kabari lewat WhatsApp sehari sebelumnya supaya saya bisa menunggu di lokasi.</p>
+      </details>
+      <details>
+        <summary>Harga masih bisa nego?</summary>
+        <p>Bisa, terutama kalau Anda serius dan sudah melihat rumahnya langsung. Datang dulu, lalu kita bicarakan.</p>
+      </details>
+      <details>
+        <summary>Kalau beli dua-duanya?</summary>
+        <p>Saya beri harga khusus. Hubungi saya untuk diskusi.</p>
+      </details>
+      <details>
+        <summary>Siapa yang menanggung biaya notaris dan pajak?</summary>
+        <p>Standar: PPh ditanggung penjual, BPHTB dan biaya AJB ditanggung pembeli. Tapi ini bisa dibicarakan.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ CTA ═══════ -->
+<section class="cta">
+  <div class="wrap rv">
+    <h2>Datang, lihat sendiri, <em>lalu putuskan.</em></h2>
+    <p>Tidak ada tekanan. Saya lebih suka Anda melihat rumahnya dulu sebelum bicara harga.</p>
+    <div class="cta-row">
+      <a class="btn btn--gold" href="https://wa.me/6282280174467?text=Halo%2C%20saya%20ingin%20jadwalkan%20survei" target="_blank" rel="noopener">Chat WhatsApp</a>
+      <a class="btn" style="background:rgba(255,255,255,.12)" href="https://wa.me/6282280174467?text=Halo%2C%20saya%20ada%20pertanyaan%20tentang%20rumah%20yang%20dijual" target="_blank" rel="noopener">Tanya Sekarang</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 · Dijual langsung oleh pemilik · Bandar Lampung</span>
+    <span>Foto dan data adalah kondisi sebenarnya per Agustus 2026</span>
+  </div>
+</footer>
+
+<!-- ═══════ WA FLOAT ═══════ -->
+<a class="wa-float" href="https://wa.me/6282280174467" target="_blank" rel="noopener" aria-label="Chat WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5.3-.5c.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+</a>
+
+<script>
+  // Scroll reveal
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: .12 });
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

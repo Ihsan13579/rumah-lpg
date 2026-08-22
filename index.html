@@ -200,10 +200,26 @@
   .house.flip .gallery{order:2}
   .gallery{display:flex;flex-direction:column;gap:12px}
   .gallery .featured,.gallery .thumbs button{border:0;padding:0;background:none;display:block;width:100%;cursor:pointer}
+  .featured-wrap{position:relative}
   .gallery .featured{border-radius:14px;overflow:hidden;aspect-ratio:4/3}
+  .feat-nav{
+    position:absolute;top:50%;transform:translateY(-50%);z-index:2;
+    width:40px;height:40px;border-radius:50%;border:0;
+    background:rgba(255,255,255,.9);color:var(--forest);font-size:22px;line-height:1;
+    display:grid;place-items:center;cursor:pointer;transition:background .2s,transform .2s;
+  }
+  .feat-nav:hover{background:#fff;transform:translateY(-50%) scale(1.08)}
+  .feat-prev{left:12px}
+  .feat-next{right:12px}
+  .feat-counter{
+    position:absolute;right:12px;bottom:12px;z-index:2;
+    background:rgba(15,42,38,.75);color:#fff;font-family:var(--mono);font-size:11px;
+    letter-spacing:.08em;padding:5px 10px;border-radius:999px;
+  }
   .gallery .thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:8px}
-  .gallery .thumbs button{border-radius:10px;overflow:hidden;aspect-ratio:1;transition:opacity .2s}
+  .gallery .thumbs button{border-radius:10px;overflow:hidden;aspect-ratio:1;transition:opacity .2s,outline-color .2s;outline:2px solid transparent;outline-offset:-2px}
   .gallery .thumbs button:hover{opacity:.8}
+  .gallery .thumbs button.active{outline-color:var(--gold);opacity:1}
   .gallery .ph,.gallery img{width:100%;height:100%;object-fit:cover}
 
   /* ───────── LIGHTBOX ───────── */
@@ -401,16 +417,22 @@
     <!-- ─── RUMAH A ─── -->
     <article class="house rv" id="rumah-a">
       <div class="gallery">
-        <button type="button" class="featured" data-gallery="itera" data-index="0"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/1.jpg" alt="Rumah A foto 1" loading="lazy"></button>
-        <div class="thumbs">
-          <button type="button" data-gallery="itera" data-index="1"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/2.jpg" alt="Rumah A foto 2" loading="lazy"></button>
-          <button type="button" data-gallery="itera" data-index="2"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/3.jpg" alt="Rumah A foto 3" loading="lazy"></button>
-          <button type="button" data-gallery="itera" data-index="3"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/4.jpg" alt="Rumah A foto 4" loading="lazy"></button>
-          <button type="button" data-gallery="itera" data-index="4"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/5.jpg" alt="Rumah A foto 5" loading="lazy"></button>
-          <button type="button" data-gallery="itera" data-index="5"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/6.jpg" alt="Rumah A foto 6" loading="lazy"></button>
-          <button type="button" data-gallery="itera" data-index="6"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/7.jpg" alt="Rumah A foto 7" loading="lazy"></button>
-          <button type="button" data-gallery="itera" data-index="7"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/8.jpg" alt="Rumah A foto 8" loading="lazy"></button>
-          <button type="button" data-gallery="itera" data-index="8"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/9.jpg" alt="Rumah A foto 9" loading="lazy"></button>
+        <div class="featured-wrap">
+          <button type="button" class="featured" data-gallery="itera"><img id="feat-itera" src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/1.jpg" alt="Rumah A foto 1" loading="lazy"></button>
+          <button type="button" class="feat-nav feat-prev" data-gallery="itera" aria-label="Foto sebelumnya">&#8249;</button>
+          <button type="button" class="feat-nav feat-next" data-gallery="itera" aria-label="Foto berikutnya">&#8250;</button>
+          <div class="feat-counter" id="feat-counter-itera">1 / 9</div>
+        </div>
+        <div class="thumbs" data-gallery="itera">
+          <button type="button" class="active" data-index="0"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/1.jpg" alt="Rumah A foto 1" loading="lazy"></button>
+          <button type="button" data-index="1"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/2.jpg" alt="Rumah A foto 2" loading="lazy"></button>
+          <button type="button" data-index="2"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/3.jpg" alt="Rumah A foto 3" loading="lazy"></button>
+          <button type="button" data-index="3"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/4.jpg" alt="Rumah A foto 4" loading="lazy"></button>
+          <button type="button" data-index="4"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/5.jpg" alt="Rumah A foto 5" loading="lazy"></button>
+          <button type="button" data-index="5"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/6.jpg" alt="Rumah A foto 6" loading="lazy"></button>
+          <button type="button" data-index="6"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/7.jpg" alt="Rumah A foto 7" loading="lazy"></button>
+          <button type="button" data-index="7"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/8.jpg" alt="Rumah A foto 8" loading="lazy"></button>
+          <button type="button" data-index="8"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/9.jpg" alt="Rumah A foto 9" loading="lazy"></button>
         </div>
       </div>
       <div class="house-info">
@@ -446,15 +468,21 @@
     <!-- ─── RUMAH B ─── -->
     <article class="house flip rv" id="rumah-b">
       <div class="gallery">
-        <button type="button" class="featured" data-gallery="panjang" data-index="0"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/1.jpg" alt="Rumah B foto 1" loading="lazy"></button>
-        <div class="thumbs">
-          <button type="button" data-gallery="panjang" data-index="1"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/2.jpg" alt="Rumah B foto 2" loading="lazy"></button>
-          <button type="button" data-gallery="panjang" data-index="2"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/3.jpg" alt="Rumah B foto 3" loading="lazy"></button>
-          <button type="button" data-gallery="panjang" data-index="3"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/4.jpg" alt="Rumah B foto 4" loading="lazy"></button>
-          <button type="button" data-gallery="panjang" data-index="4"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/5.jpg" alt="Rumah B foto 5" loading="lazy"></button>
-          <button type="button" data-gallery="panjang" data-index="5"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/6.jpg" alt="Rumah B foto 6" loading="lazy"></button>
-          <button type="button" data-gallery="panjang" data-index="6"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/7.jpg" alt="Rumah B foto 7" loading="lazy"></button>
-          <button type="button" data-gallery="panjang" data-index="7"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/8.jpg" alt="Rumah B foto 8" loading="lazy"></button>
+        <div class="featured-wrap">
+          <button type="button" class="featured" data-gallery="panjang"><img id="feat-panjang" src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/1.jpg" alt="Rumah B foto 1" loading="lazy"></button>
+          <button type="button" class="feat-nav feat-prev" data-gallery="panjang" aria-label="Foto sebelumnya">&#8249;</button>
+          <button type="button" class="feat-nav feat-next" data-gallery="panjang" aria-label="Foto berikutnya">&#8250;</button>
+          <div class="feat-counter" id="feat-counter-panjang">1 / 8</div>
+        </div>
+        <div class="thumbs" data-gallery="panjang">
+          <button type="button" class="active" data-index="0"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/1.jpg" alt="Rumah B foto 1" loading="lazy"></button>
+          <button type="button" data-index="1"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/2.jpg" alt="Rumah B foto 2" loading="lazy"></button>
+          <button type="button" data-index="2"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/3.jpg" alt="Rumah B foto 3" loading="lazy"></button>
+          <button type="button" data-index="3"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/4.jpg" alt="Rumah B foto 4" loading="lazy"></button>
+          <button type="button" data-index="4"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/5.jpg" alt="Rumah B foto 5" loading="lazy"></button>
+          <button type="button" data-index="5"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/6.jpg" alt="Rumah B foto 6" loading="lazy"></button>
+          <button type="button" data-index="6"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/7.jpg" alt="Rumah B foto 7" loading="lazy"></button>
+          <button type="button" data-index="7"><img src="https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/8.jpg" alt="Rumah B foto 8" loading="lazy"></button>
         </div>
       </div>
       <div class="house-info">
@@ -616,11 +644,43 @@
   }, { threshold: .12 });
   document.querySelectorAll('.rv').forEach(el => io.observe(el));
 
-  // Lightbox gallery
+  // Galleries: inline featured photo + thumbnail strip, with a separate fullscreen lightbox slideshow
   const galleries = {
     itera: Array.from({ length: 9 }, (_, i) => `https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-itera/${i + 1}.jpg`),
     panjang: Array.from({ length: 8 }, (_, i) => `https://huggqoxhljyitfwrqjfl.supabase.co/storage/v1/object/public/rumah-lpg-panjang/${i + 1}.jpg`)
   };
+  const galleryState = { itera: 0, panjang: 0 };
+
+  // Inline featured photo — clicking it opens the lightbox; prev/next and thumbs just swap the photo in place
+  function setFeatured(gallery, index) {
+    const imgs = galleries[gallery];
+    const i = (index + imgs.length) % imgs.length;
+    galleryState[gallery] = i;
+    const featImg = document.getElementById('feat-' + gallery);
+    featImg.src = imgs[i];
+    featImg.alt = `Foto ${i + 1}`;
+    document.getElementById('feat-counter-' + gallery).textContent = `${i + 1} / ${imgs.length}`;
+    document.querySelectorAll(`.thumbs[data-gallery="${gallery}"] button`).forEach((t, idx) => {
+      t.classList.toggle('active', idx === i);
+    });
+  }
+  document.querySelectorAll('.featured').forEach(btn => {
+    btn.addEventListener('click', () => openLightbox(btn.dataset.gallery, galleryState[btn.dataset.gallery]));
+  });
+  document.querySelectorAll('.feat-prev').forEach(btn => {
+    btn.addEventListener('click', () => setFeatured(btn.dataset.gallery, galleryState[btn.dataset.gallery] - 1));
+  });
+  document.querySelectorAll('.feat-next').forEach(btn => {
+    btn.addEventListener('click', () => setFeatured(btn.dataset.gallery, galleryState[btn.dataset.gallery] + 1));
+  });
+  document.querySelectorAll('.thumbs').forEach(wrap => {
+    const gallery = wrap.dataset.gallery;
+    wrap.querySelectorAll('button').forEach((btn, idx) => {
+      btn.addEventListener('click', () => setFeatured(gallery, idx));
+    });
+  });
+
+  // Fullscreen lightbox slideshow
   const lb = document.getElementById('lightbox');
   const lbImg = document.getElementById('lbImg');
   const lbCounter = document.getElementById('lbCounter');
@@ -631,6 +691,7 @@
     lbImg.src = imgs[lbIndex];
     lbImg.alt = `Foto ${lbIndex + 1}`;
     lbCounter.textContent = `${lbIndex + 1} / ${imgs.length}`;
+    setFeatured(lbGallery, lbIndex);
   }
   function openLightbox(gallery, index) {
     lbGallery = gallery;
@@ -651,9 +712,6 @@
     updateLightbox();
   }
 
-  document.querySelectorAll('.gallery [data-gallery]').forEach(el => {
-    el.addEventListener('click', () => openLightbox(el.dataset.gallery, parseInt(el.dataset.index, 10)));
-  });
   document.getElementById('lbClose').addEventListener('click', closeLightbox);
   document.getElementById('lbPrev').addEventListener('click', () => navLightbox(-1));
   document.getElementById('lbNext').addEventListener('click', () => navLightbox(1));

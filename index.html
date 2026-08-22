@@ -672,16 +672,27 @@
   }, { threshold: .12 });
   document.querySelectorAll('.rv').forEach(el => io.observe(el));
 
-  // Google Maps embed fallback — some in-app browsers (Threads, Instagram, TikTok)
-  // block cross-origin iframes and never render the map. If the frame errors out or
-  // never confirms a load in time, swap to a plain "open in Google Maps" link instead.
+  // Google Maps embed fallback — in-app browsers (Threads, Instagram, Facebook,
+  // TikTok, LinkedIn, Twitter/X, WhatsApp) block cross-origin iframes by policy and
+  // the embed never renders there. Detect those via their known UA tokens up front
+  // and skip the iframe entirely; for anything not on the list, fall back to an
+  // error/timeout check as a secondary safety net.
+  const inAppUA = /\bInstagram\b|\bBarcelona\b|FB_IAB|FBAN|FBAV|\bMessenger\b|musical_ly|Bytedance|LinkedInApp|\bTwitter\b|WAiOS|WA4A/i;
+  const isInAppBrowser = inAppUA.test(navigator.userAgent);
+
   document.querySelectorAll('.map-frame').forEach(frame => {
+    const fallback = frame.nextElementSibling;
+    if (isInAppBrowser) {
+      frame.remove();
+      fallback.hidden = false;
+      return;
+    }
     let settled = false;
     const showFallback = () => {
       if (settled) return;
       settled = true;
       frame.style.display = 'none';
-      frame.nextElementSibling.hidden = false;
+      fallback.hidden = false;
     };
     frame.addEventListener('error', showFallback);
     frame.addEventListener('load', () => { settled = true; });

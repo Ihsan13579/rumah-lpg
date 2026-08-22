@@ -36,7 +36,7 @@
                lalu ganti <div class="ph"> dengan <img src="..."> (lihat komentar FOTO di bawah)
   2. Data    → cari komentar  [EDIT]  untuk harga, luas, alamat, nomor WA
   3. Nomor WA sudah diisi (6282280174467) di semua link https://wa.me/
-  4. Peta    → ganti src iframe Google Maps di section #lokasi
+  4. Peta    → ganti koordinat di href .map (link keluar, bukan iframe — aman di in-app browser)
   ══════════════════════════════════════════════════════════
 -->
 
@@ -296,8 +296,15 @@
 
   /* ───────── LOKASI ───────── */
   .loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
-  .map{border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;border:1px solid var(--line);background:#DDE3DC}
-  .map iframe{width:100%;height:100%;border:0}
+  .map{
+    border-radius:var(--r);aspect-ratio:4/3;border:1px solid var(--line);
+    background:linear-gradient(160deg,#DCE3DB,#C2CEC6);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+    color:var(--forest);text-align:center;transition:transform .25s var(--ease),background .25s;
+  }
+  .map:hover{transform:translateY(-2px);background:linear-gradient(160deg,#E3E9DF,#CBD6CD)}
+  .map svg{width:40px;height:40px;fill:var(--maroon)}
+  .map span{font-weight:700;font-size:15px}
   .loc-card h3{font-family:var(--display);font-weight:400;font-size:24px;margin:18px 0 6px}
   .loc-card .land{font-family:var(--mono);font-size:13px;color:var(--mute)}
   @media(max-width:860px){.loc-grid{grid-template-columns:1fr}}
@@ -564,18 +571,18 @@
     </div>
     <div class="loc-grid">
       <div class="loc-card rv">
-        <div class="map">
-          <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps?q=-5.3612912,105.3069675&output=embed"></iframe>
-        </div>
+        <a class="map" href="https://www.google.com/maps?q=-5.3612912,105.3069675" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          <span>Buka lokasi di Google Maps</span>
+        </a>
         <h3>Rumah A — Griya Senopati Madani</h3>
         <div class="land">Dekat pintu tol · ITERA &amp; UIN · SAMSAT &amp; KAPOLDA</div>
       </div>
       <div class="loc-card rv" style="transition-delay:.1s">
-        <div class="map">
-          <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps?q=-5.492804,105.3259906&output=embed"></iframe>
-        </div>
+        <a class="map" href="https://www.google.com/maps?q=-5.492804,105.3259906" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          <span>Buka lokasi di Google Maps</span>
+        </a>
         <h3>Ruko B — Jl. Lintas Panjang</h3>
         <div class="land">Pinggir jalan lintas utama · dekat pelabuhan, pabrik &amp; pom bensin</div>
       </div>

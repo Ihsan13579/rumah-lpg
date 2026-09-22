@@ -178,6 +178,8 @@ src="https://www.facebook.com/tr?id=2416450748763363&ev=PageView&noscript=1"
   .duo .cap b{font-family:var(--display);font-weight:400;font-size:28px;line-height:1.05;display:block}
   .duo .cap span{font-size:13px;opacity:.85}
   .duo .cap .price{font-family:var(--mono);font-size:14px;white-space:nowrap;color:var(--gold-2)}
+  .duo .cap .price-wrap{display:flex;flex-direction:column;align-items:flex-end;gap:2px}
+  .duo .cap .price-old{font-family:var(--mono);font-size:11px;white-space:nowrap;color:rgba(255,255,255,.55);text-decoration:line-through}
 
   /* placeholder foto */
   .ph{
@@ -273,6 +275,7 @@ src="https://www.facebook.com/tr?id=2416450748763363&ev=PageView&noscript=1"
   .house-info .addr{color:var(--mute);font-size:15px;margin-bottom:22px}
   .price-big{font-family:var(--display);font-size:38px;color:var(--forest);line-height:1;margin-bottom:4px}
   .price-big small{font-family:var(--mono);font-size:12px;color:var(--mute);letter-spacing:.08em;display:block;margin-top:8px}
+  .price-old-big{font-family:var(--mono);font-size:18px;font-weight:400;color:var(--mute);text-decoration:line-through;margin-right:6px}
 
   .specs{
     display:grid;grid-template-columns:repeat(3,1fr);
@@ -419,7 +422,10 @@ src="https://www.facebook.com/tr?id=2416450748763363&ev=PageView&noscript=1"
         <span class="tag">RUMAH A</span>
         <div class="cap">
           <div><b>Rumah ITERA</b><span>2 kamar · LT/LB 105 m²</span></div>
-          <span class="price">Rp 550 jt</span>
+          <div class="price-wrap">
+            <span class="price-old">Rp 600 jt</span>
+            <span class="price">Rp 550 jt</span>
+          </div>
         </div>
       </a>
       <a href="#rumah-b" class="rv" style="transition-delay:.15s">
@@ -477,7 +483,7 @@ src="https://www.facebook.com/tr?id=2416450748763363&ev=PageView&noscript=1"
         <div class="label">RUMAH A · GRIYA SENOPATI MADANI</div>
         <h3>Rumah hook furnished di Sukarame</h3>
         <div class="addr">Perumahan Griya Senopati Madani, Sukarame, Bandar Lampung</div>
-        <div class="price-big">Rp 550.000.000 <small>NEGO · SHM CLEAN &amp; CLEAR · IMB ADA</small></div>
+        <div class="price-big"><span class="price-old-big">Rp 600.000.000</span> Rp 550.000.000 <small>NEGO · SHM CLEAN &amp; CLEAR · IMB ADA</small></div>
 
         <div class="specs">
           <div><span>Luas tanah/bangunan</span><b>105 m²</b></div>

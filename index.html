@@ -59,6 +59,8 @@
     --gold:#C89B3C;       /* emas tapis / siger */
     --gold-2:#E3C276;
     --maroon:#7A2E2E;     /* merah tapis */
+    --wa:#25D366;         /* hijau WhatsApp */
+    --wa-2:#1EBE5A;
     --mute:#6B746F;
     --line:rgba(20,26,24,.12);
 
@@ -123,7 +125,15 @@
   .btn--gold:hover{background:var(--gold-2)}
   .btn--ghost{background:transparent;border:1.5px solid currentColor;color:var(--forest)}
   .btn--ghost:hover{background:var(--forest);color:#fff}
-  .btn svg{width:18px;height:18px}
+  .btn--wa{background:var(--wa);color:var(--ink);box-shadow:0 6px 20px rgba(37,211,102,.28)}
+  .btn--wa:hover{background:var(--wa-2);color:var(--ink)}
+  .btn--wa-ghost{background:transparent;border:1.5px solid var(--wa);color:var(--wa)}
+  .btn--wa-ghost:hover{background:var(--wa);color:var(--ink)}
+  .btn svg{width:18px;height:18px;fill:currentColor}
+
+  /* microcopy di bawah tombol WhatsApp */
+  .wa-note{font-size:13px;line-height:1.5;color:var(--mute);margin-top:12px;max-width:48ch}
+  .wa-note b{color:var(--ink);font-weight:700}
   @media(max-width:760px){.nav ul{display:none}}
 
   /* ───────── HERO ───────── */
@@ -335,6 +345,8 @@
   .cta h2 em{color:var(--gold-2);font-style:italic}
   .cta p{opacity:.8;max-width:48ch;margin:0 auto 36px}
   .cta .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .cta .wa-note{color:rgba(255,255,255,.7);margin:18px auto 0;text-align:center}
+  .cta .wa-note b{color:#fff}
   .cta::before{
     content:"";position:absolute;inset:auto -10% -60% -10%;height:80%;
     background:radial-gradient(ellipse at center,rgba(200,155,60,.25),transparent 60%);
@@ -367,6 +379,11 @@
 </head>
 <body>
 
+<!-- logo WhatsApp, dipakai ulang lewat <use href="#ico-wa"> -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="ico-wa" viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5.3-.5c.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></symbol>
+</svg>
+
 <!-- ═══════ NAV ═══════ -->
 <header class="nav">
   <div class="wrap">
@@ -377,10 +394,9 @@
       <li><a href="#lokasi">Lokasi</a></li>
       <li><a href="#faq">Tanya jawab</a></li>
     </ul>
-    <!-- [EDIT] nomor WA -->
-    <a class="btn btn--gold" href="https://wa.me/6282280174467?text=Halo%2C%20saya%20tertarik%20dengan%20rumah%20yang%20dijual" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5.3-.5c.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
-      Hubungi pemilik
+    <a class="btn btn--wa" href="https://wa.me/6282280174467?text=Halo%2C%20saya%20tertarik%20dengan%20rumah%20yang%20dijual.%20Boleh%20minta%20detailnya%3F" target="_blank" rel="noopener">
+      <svg aria-hidden="true"><use href="#ico-wa"/></svg>
+      Chat pemilik langsung
     </a>
   </div>
 </header>
@@ -397,8 +413,12 @@
         <p>Dua rumah pribadi di Bandar Lampung, dijual karena pemilik pindah. Harga apa adanya, bisa ditawar, bisa dilihat kapan saja.</p>
         <div class="cta-row">
           <a class="btn" href="#rumah">Lihat kedua rumah</a>
-          <a class="btn btn--ghost" href="https://wa.me/6282280174467" target="_blank" rel="noopener">Jadwalkan survei</a>
+          <a class="btn btn--wa" href="https://wa.me/6282280174467?text=Halo%2C%20saya%20mau%20jadwalkan%20survei%20rumah.%20Kapan%20saya%20bisa%20datang%20lihat%3F" target="_blank" rel="noopener">
+            <svg aria-hidden="true"><use href="#ico-wa"/></svg>
+            Jadwalkan survei
+          </a>
         </div>
+        <p class="wa-note">Chat-nya masuk ke HP saya sendiri, bukan agen. <b>Gratis, tanpa komitmen</b> — lihat dulu rumahnya, baru bicara harga.</p>
       </div>
     </div>
 
@@ -491,7 +511,11 @@
           <li>Aman &amp; nyaman</li>
         </ul>
 
-        <a class="btn" href="https://wa.me/6282280174467?text=Halo%2C%20saya%20tertarik%20dengan%20Rumah%20Itera%20di%20Griya%20Senopati%20Madani" target="_blank" rel="noopener">Tanya tentang Rumah Itera</a>
+        <a class="btn btn--wa" href="https://wa.me/6282280174467?text=Halo%2C%20saya%20tertarik%20dengan%20Rumah%20ITERA%20di%20Griya%20Senopati%20Madani.%20Masih%20tersedia%3F" target="_blank" rel="noopener">
+          <svg aria-hidden="true"><use href="#ico-wa"/></svg>
+          Tanya Rumah ITERA
+        </a>
+        <p class="wa-note">Tanya apa saja sebelum datang: <b>sisa nego, legalitas, biaya listrik bulanan</b>, atau minta video tour dulu. Saya yang jawab sendiri.</p>
       </div>
     </article>
 
@@ -541,7 +565,11 @@
           <li>SHM clean &amp; clear, IMB ada</li>
         </ul>
 
-        <a class="btn" href="https://wa.me/6282280174467?text=Halo%2C%20saya%20tertarik%20dengan%20Ruko%20Panjang" target="_blank" rel="noopener">Tanya tentang Ruko Panjang</a>
+        <a class="btn btn--wa" href="https://wa.me/6282280174467?text=Halo%2C%20saya%20tertarik%20dengan%20Ruko%20Panjang%20di%20Jl.%20Lintas%20Panjang.%20Masih%20tersedia%3F" target="_blank" rel="noopener">
+          <svg aria-hidden="true"><use href="#ico-wa"/></svg>
+          Tanya Ruko Panjang
+        </a>
+        <p class="wa-note">Mau dipakai usaha, gudang, atau kos? Chat saya untuk tanya <b>keramaian jalan, akses truk, atau potensi sewanya</b>.</p>
       </div>
     </article>
   </div>
@@ -648,9 +676,16 @@
     <h2>Datang, lihat sendiri, <em>lalu putuskan.</em></h2>
     <p>Tidak ada tekanan. Saya lebih suka Anda melihat rumahnya dulu sebelum bicara harga.</p>
     <div class="cta-row">
-      <a class="btn btn--gold" href="https://wa.me/6282280174467?text=Halo%2C%20saya%20ingin%20jadwalkan%20survei" target="_blank" rel="noopener">Chat WhatsApp</a>
-      <a class="btn" style="background:rgba(255,255,255,.12)" href="https://wa.me/6282280174467?text=Halo%2C%20saya%20ada%20pertanyaan%20tentang%20rumah%20yang%20dijual" target="_blank" rel="noopener">Tanya Sekarang</a>
+      <a class="btn btn--wa" href="https://wa.me/6282280174467?text=Halo%2C%20saya%20ingin%20jadwalkan%20survei.%20Kapan%20waktu%20yang%20pas%20untuk%20datang%3F" target="_blank" rel="noopener">
+        <svg aria-hidden="true"><use href="#ico-wa"/></svg>
+        Jadwalkan survei sekarang
+      </a>
+      <a class="btn btn--wa-ghost" href="https://wa.me/6282280174467?text=Halo%2C%20saya%20mau%20tanya-tanya%20dulu%20soal%20rumah%20yang%20dijual" target="_blank" rel="noopener">
+        <svg aria-hidden="true"><use href="#ico-wa"/></svg>
+        Tanya dulu, belum mau survei
+      </a>
     </div>
+    <p class="wa-note">Nomor di atas langsung ke pemilik — tidak ada agen, tidak ada komisi, tidak ada telepon yang mengganggu setelahnya.</p>
   </div>
 </section>
 
@@ -663,7 +698,7 @@
 
 <!-- ═══════ WA FLOAT ═══════ -->
 <a class="wa-float" href="https://wa.me/6282280174467" target="_blank" rel="noopener" aria-label="Chat WhatsApp">
-  <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5.3-.5c.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+  <svg aria-hidden="true"><use href="#ico-wa"/></svg>
 </a>
 
 <!-- ═══════ LIGHTBOX ═══════ -->
